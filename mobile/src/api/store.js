@@ -1,0 +1,23 @@
+import { request, query } from './client';
+export const api = {
+  login: (body) => request('/auth/login', { method: 'POST', body }),
+  register: (body) => request('/auth/register', { method: 'POST', body }),
+  logout: () => request('/auth/logout', { method: 'POST' }),
+  me: () => request('/auth/me'),
+  products: (params) => request(`/products${query(params)}`),
+  categories: () => request('/categories'),
+  product: (id) => request(`/products/${id}`),
+  cart: () => request('/cart'),
+  addItem: (productId, quantity = 1) => request('/cart/items', { method: 'POST', body: { productId, quantity } }),
+  updateItem: (id, quantity) => request(`/cart/items/${id}`, { method: 'PUT', body: { quantity } }),
+  removeItem: (id) => request(`/cart/items/${id}`, { method: 'DELETE' }),
+  preview: (discountCode) => request('/orders/preview', { method: 'POST', body: { discountCode } }),
+  checkout: (body, key) => request('/orders', { method: 'POST', body, headers: { 'Idempotency-Key': key } }),
+  orders: (params) => request(`/orders/my${query({ ...params, active: 1 })}`),
+  history: (params) => request(`/orders/my/history${query(params)}`),
+  order: (id) => request(`/orders/my/${id}`),
+  payment: (orderId, method) => request('/payments/online', { method: 'POST', body: { orderId, method } }),
+  profile: () => request('/profile'),
+  updateProfile: (body) => request('/profile', { method: 'PUT', body }),
+  password: (body) => request('/profile/password', { method: 'PUT', body }),
+};

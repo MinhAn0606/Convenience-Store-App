@@ -1,0 +1,32 @@
+{
+  "name": "convenience-store-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Convenience Store E-commerce Website - REST API (Node.js, Express, MongoDB, MVC)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/scripts/seed.js",
+    "seed:orders": "node src/scripts/seed-orders.js",
+    "seed:checkout": "node src/scripts/seed-checkout.js",
+    "seed:transactions": "node src/scripts/seed-transactions.js",
+    "seed:shifts": "node src/scripts/seed-shifts.js",
+    "init-db": "node src/scripts/init-db.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "google-auth-library": "^11.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.0",
+    "nodemailer": "^10.2.1"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1"
+  }
+}

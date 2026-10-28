@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Convenience Store",
+    "slug": "convenience-store-mobile",
+    "scheme": "conveniencestore",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.conveniencestore.mobile" },
+    "android": { "package": "com.conveniencestore.mobile" },
+    "plugins": ["expo-secure-store", "expo-web-browser"]
+  }
+}
